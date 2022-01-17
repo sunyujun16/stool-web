@@ -1,7 +1,9 @@
 package com.sunyujun.stool.config;
 
 import com.sunyujun.stool.interceptor.LoginInterceptor;
+import com.sunyujun.stool.util.ConstsProperties;
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -11,6 +13,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @version 0.0.0
  * @date 1/12 16:36
  */
+@EnableConfigurationProperties(ConstsProperties.class)
 @MapperScan("com.sunyujun.stool.mapper")
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {

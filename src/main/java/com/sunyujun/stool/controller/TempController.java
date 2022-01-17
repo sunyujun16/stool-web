@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 //@ConditionalOnMissingBean(TodoListController.class)
 //@RestController
+@Deprecated
 public class TempController {
 
     @CrossOrigin

@@ -20,14 +20,15 @@ import java.util.List;
  * @version 0.0.0
  * @date 1/11 19:51
  */
+@CrossOrigin(origins = {"${spring.consts.front-end-host}"}, allowCredentials = "true")
 @RestController
 public class ItemController {
 
     @Autowired
     private ItemServiceImpl  itemService;
 
-    @CrossOrigin
-    @RequestMapping("/test")
+
+    @RequestMapping("/list-item")
     public List<Item> testGetItemList(HttpServletResponse response, HttpServletRequest request,
                                     @RequestParam(value = "userId", defaultValue = "001") String userId) {
 

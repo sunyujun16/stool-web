@@ -7,6 +7,9 @@ spring:
   web:
     resources:
       add-mappings: true
+  consts:
+    front-end-host: "http://localhost:8081"
+
 
 mybatis-plus:
   configuration:

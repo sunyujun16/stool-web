@@ -1,0 +1,11 @@
+{
+  "groups": [
+    {
+      "name": "spring.consts",
+      "type": "com.sunyujun.stool.util.ConstsProperties",
+      "sourceType": "com.sunyujun.stool.util.ConstsProperties"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}
