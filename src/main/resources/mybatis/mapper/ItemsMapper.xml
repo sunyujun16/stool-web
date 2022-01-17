@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sunyujun.stool.mapper.ItemsMapper">
+    <select id="getItemsByUserId" resultType="com.sunyujun.stool.pojo.Item">
+        select * from items where userId=#{userId};
+    </select>
+</mapper>

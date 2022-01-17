@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/stool_base?useSSL=false
+    username: root
+    password: sun
+  web:
+    resources:
+      add-mappings: true
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+  # 之前忘记了对mapper-locations设置，默认的设置无法匹配到我们的mybatis/mapper路径
+  mapper-locations: classpath*:/*/mapper/**/*.xml
