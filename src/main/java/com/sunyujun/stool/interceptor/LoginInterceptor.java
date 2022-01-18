@@ -22,8 +22,13 @@ public class LoginInterceptor implements HandlerInterceptor {
                              Object handler) throws Exception {
         log.info("拦截器处理中，路径：{}", request.getRequestURL());
         String username = (String) request.getSession().getAttribute("username");
-        if (username == null) response.sendError(HttpStatus.UNAUTHORIZED.value(), "给个面子，先登录一下");
-        return null != username;
+        if (username == null) {
+            response.sendError(HttpStatus.UNAUTHORIZED.value(), "给个面子，先登录一下");
+            log.info("未登录，拦截器返回401");
+            return false;
+        }
+        log.info("请求通过，来自用户：{}",username);
+        return true;
     }
 
     @Override

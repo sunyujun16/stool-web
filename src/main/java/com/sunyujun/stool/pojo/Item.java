@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Item {
     private String id;
-    private String userName;
+    private String username;
     private String userId;
     private String title;
     private Boolean done;

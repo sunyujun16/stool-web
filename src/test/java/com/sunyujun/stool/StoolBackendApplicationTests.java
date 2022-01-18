@@ -44,7 +44,7 @@ class StoolBackendApplicationTests {
     @Test
     public void testItemsMapper(){
         ItemsMapper mapper = sqlSession.getMapper(ItemsMapper.class);
-        List<Item> itemList = mapper.getItemsByUserId("001");
+        List<Item> itemList = mapper.getItemsByUserId(1);
         System.out.println(itemList);
 //        List<Item> items = itemsMapper.getItemsByUserId("001");
 //        System.out.println(items);

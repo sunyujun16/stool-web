@@ -12,5 +12,5 @@ import java.util.List;
  */
 public interface ItemService {
 
-    List<Item> getItemsByUserId(String userId);
+    List<Item> getItemsByUserId(Integer userId);
 }

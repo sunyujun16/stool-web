@@ -20,7 +20,7 @@ public class ItemServiceImpl implements ItemService {
     private ItemsMapper itemsMapper;
 
     @Override
-    public List<Item> getItemsByUserId(String userId) {
+    public List<Item> getItemsByUserId(Integer userId) {
         return itemsMapper.getItemsByUserId(userId);
     }
 }

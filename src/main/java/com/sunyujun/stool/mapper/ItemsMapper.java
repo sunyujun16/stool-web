@@ -13,5 +13,15 @@ import java.util.List;
 @Mapper
 public interface ItemsMapper {
 
-    List<Item> getItemsByUserId(String userId);
+    List<Item> getItemsByUserId(Integer userId);
+
+//    int deleteItemByItemId(Integer itemId);
+
+//    int deleteItemsByUserId(Integer userId);
+
+//    int insertItem(Item item);
+
+//    int updateItem(Item item);
+
+
 }

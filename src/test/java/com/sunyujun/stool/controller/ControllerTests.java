@@ -1,9 +1,12 @@
 package com.sunyujun.stool.controller;
 
+import com.sunyujun.stool.pojo.Item;
 import com.sunyujun.stool.pojo.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 /**
  * @author sunyujun
@@ -14,7 +17,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class ControllerTests {
 
     @Autowired
-    private LoginRegisterController controller;
+    private LoginRegisterController registerController;
+
+    @Autowired
+    private ItemController itemController;
 
 
     @Test
@@ -23,12 +29,18 @@ public class ControllerTests {
 //        User user = new User();
 //        user.setUsername("sun");
 //        user.setPassword("0");
-//        controller.registerNormalUser(user);
+//        registerController.registerNormalUser(user);
 //
 //        User user2 = new User();
 //        user2.setUsername("吴老二");
 //        user2.setPassword("502");
-//        controller.registerNormalUser(user2);
+//        registerController.registerNormalUser(user2);
+    }
+
+    @Test
+    void testItemList(){
+        List<Item> items = itemController.testGetItemList(null, null, 1);
+        System.out.println(items);
     }
 
 }
