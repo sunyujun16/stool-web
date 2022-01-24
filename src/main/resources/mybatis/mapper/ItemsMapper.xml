@@ -7,4 +7,19 @@
     <select id="getItemsByUserId" resultType="com.sunyujun.stool.pojo.Item">
         select * from items where userId=#{userId};
     </select>
+
+    <insert id="saveItem" parameterType="com.sunyujun.stool.pojo.Item">
+        insert into items(id, userName, userId, title, done)
+         value(#{id}, #{username}, #{userId}, #{title}, #{done})
+    </insert>
+
+    <update id="updateItemOnId">
+        update items set ??? where id=#{id}
+    </update>
+
+
+
+
+
+
 </mapper>

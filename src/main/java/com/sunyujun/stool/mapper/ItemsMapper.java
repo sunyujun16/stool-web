@@ -19,7 +19,7 @@ public interface ItemsMapper {
 
 //    int deleteItemsByUserId(Integer userId);
 
-//    int insertItem(Item item);
+    int saveItem(Item item);
 
 //    int updateItem(Item item);
 
