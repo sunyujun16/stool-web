@@ -1,7 +1,6 @@
 package com.sunyujun.stool.service;
 
 import com.sunyujun.stool.pojo.Item;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -13,4 +12,17 @@ import java.util.List;
 public interface ItemService {
 
     List<Item> getItemsByUserId(Integer userId);
+
+    int removeItemById(String itemId);
+
+    void removeItems(List<Item> itemList);
+
+    int saveItem(Item item);
+
+    boolean saveItems(List<Item> itemList);
+
+    int updateItemOnId(Item item);
+
+    boolean updateAll(List<Item> itemList, Integer userId);
+
 }

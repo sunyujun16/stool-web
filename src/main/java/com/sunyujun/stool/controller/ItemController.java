@@ -7,10 +7,7 @@ import com.sunyujun.stool.service.impl.TodoListServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,20 +29,47 @@ public class ItemController {
 
     /**
      * 1/17测试通过，获取itemList成功。
+     *
      * @param response 响应
-     * @param request 请求
-     * @param userId 你猜
+     * @param request  请求
+     * @param userId   你猜
      * @return java.util.List<com.sunyujun.stool.pojo.Item>
      * @author sunyujun
      * @date 1/17
-     *
      */
     @RequestMapping("/list-item")
-    public List<Item> testGetItemList(HttpServletResponse response, HttpServletRequest request,
-                                    @RequestParam(value = "userId", defaultValue = "1") Integer userId) {
+    public List<Item> getItemList(HttpServletResponse response, HttpServletRequest request,
+                                  @RequestParam(value = "userId", defaultValue = "1") Integer userId) {
         logger.info("handler正在处理list-item请求 ......");
         return itemService.getItemsByUserId(userId);
     }
 
+    /**
+     * 更新该用户的所有items，前端每10分钟或手动访问一次。
+     * @return boolean
+     * @author sunyujun
+     * @date 2/8
+     */
+    @RequestMapping("/update_all")
+    public boolean updateAll(
+            @RequestParam List<Item> itemList,
+            @RequestParam Integer userId
+    ) {
+        logger.info("handler正在处理updateAll请求 ......");
+        return itemService.updateAll(itemList, userId);
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -39,8 +39,17 @@ public class ControllerTests {
 
     @Test
     void testItemList(){
-        List<Item> items = itemController.testGetItemList(null, null, 1);
+        List<Item> items = itemController.getItemList(null, null, 1);
         System.out.println(items);
+    }
+
+    @Test
+    void testUpdateAll(){
+        List<Item> itemList = itemController.getItemList(null, null, 1);
+        Item item = itemList.get(0);
+        item.setTitle(item.getTitle() + "new ");
+
+//        itemController.updateAll(itemList, 1);
     }
 
 }

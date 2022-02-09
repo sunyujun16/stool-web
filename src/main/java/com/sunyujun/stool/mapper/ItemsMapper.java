@@ -15,13 +15,16 @@ public interface ItemsMapper {
 
     List<Item> getItemsByUserId(Integer userId);
 
-//    int deleteItemByItemId(Integer itemId);
+    int removeItemById(String itemId);
 
+    // 没必要，批量删除封装在Service里面即可，Controller调用。
 //    int deleteItemsByUserId(Integer userId);
 
     int saveItem(Item item);
 
-//    int updateItem(Item item);
+    int updateItemOnId(Item item);
+
+    int removeItemsByUserId(Integer userId);
 
 
 }

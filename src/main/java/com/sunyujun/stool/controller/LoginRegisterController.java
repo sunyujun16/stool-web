@@ -42,7 +42,6 @@ public class LoginRegisterController {
             response.sendError(HttpStatus.FORBIDDEN.value(), "用户名或密码错误");
             return null;
         }
-        // nothing
 
         // 将用户名放入session
         request.getSession().setAttribute("username",loginUser.getUsername());;

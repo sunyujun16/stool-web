@@ -11,7 +11,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class ConstsProperties {
     private String frontEndHost = "http://localhost:8081";
 
-
     public String getFrontEndHost() {
         return frontEndHost;
     }

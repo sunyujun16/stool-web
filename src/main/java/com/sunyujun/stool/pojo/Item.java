@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class Item {
     private String id;
     private String username;
-    private String userId;
+    private Integer userId;
     private String title;
     private Boolean done;
 
