@@ -1,5 +1,6 @@
 package com.sunyujun.stool.controller;
 
+import com.sunyujun.stool.javabean.UpdateBean;
 import com.sunyujun.stool.pojo.Item;
 import com.sunyujun.stool.pojo.ItemList;
 import com.sunyujun.stool.service.impl.ItemServiceImpl;
@@ -50,13 +51,15 @@ public class ItemController {
      * @author sunyujun
      * @date 2/8
      */
-    @RequestMapping("/update_all")
+    @PostMapping("/update_all")
     public boolean updateAll(
-            @RequestParam List<Item> itemList,
-            @RequestParam Integer userId
-    ) {
+            @RequestBody UpdateBean updateBean
+//            @RequestParam(name = "itemList") List<Item> itemList,
+//            @RequestParam(name = "userId") Integer userId
+            ) {
         logger.info("handler正在处理updateAll请求 ......");
-        return itemService.updateAll(itemList, userId);
+        return itemService.updateAll(updateBean.getItemList(), updateBean.getUserId());
+//        return itemService.updateAll(itemList, userId);
     }
 
 }
