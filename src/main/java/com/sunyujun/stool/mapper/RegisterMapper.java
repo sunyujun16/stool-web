@@ -12,4 +12,6 @@ import org.apache.ibatis.annotations.Mapper;
 public interface RegisterMapper {
 
     int registerNormalUser(User user);
+
+    String searchForUsername(String username);
 }

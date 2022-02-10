@@ -30,6 +30,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
         // 添加登录拦截，拦截所有，explicitly指定要放行的路径。至于静态资源部署在Nginx，此处不必操心。
         registry.addInterceptor(new LoginInterceptor())
                 .addPathPatterns("/**")
-                .excludePathPatterns("/","/login", "/register");
+                .excludePathPatterns("/","/login", "/register", "/check_dup_name");
     }
 }

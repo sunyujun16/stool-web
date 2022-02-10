@@ -9,4 +9,6 @@ import com.sunyujun.stool.pojo.User;
  */
 public interface RegisterService {
     int registerNormalUser(User user);
+
+    String searchForUsername(String username);
 }

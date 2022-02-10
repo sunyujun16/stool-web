@@ -1,7 +1,10 @@
 package com.sunyujun.stool.controller;
 
+import com.sunyujun.stool.mapper.RegisterMapper;
 import com.sunyujun.stool.pojo.Item;
 import com.sunyujun.stool.pojo.User;
+import com.sunyujun.stool.service.RegisterService;
+import com.sunyujun.stool.service.impl.RegisterServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,6 +24,9 @@ public class ControllerTests {
 
     @Autowired
     private ItemController itemController;
+
+    @Autowired
+    private RegisterService registerService;
 
 
     @Test
@@ -50,6 +56,20 @@ public class ControllerTests {
         item.setTitle(item.getTitle() + "new ");
 
 //        itemController.updateAll(itemList, 1);
+    }
+
+    @Test
+    void testCheckDupName(){
+        boolean sun = registerController.checkDupName("sun");
+        assert sun;
+        boolean none = registerController.checkDupName("none");
+        assert !none;
+    }
+
+    @Test
+    void testCheckDupNameService(){
+        System.out.println(registerService.searchForUsername("none"));
+        // null
     }
 
 }

@@ -20,4 +20,9 @@ public class RegisterServiceImpl implements RegisterService {
     public int registerNormalUser(User user) {
         return registerMapper.registerNormalUser(user);
     }
+
+    @Override
+    public String searchForUsername(String username){
+        return registerMapper.searchForUsername(username);
+    }
 }

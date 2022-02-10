@@ -38,13 +38,14 @@ public class LoginRegisterController {
         User userByLogin = loginService.getUserByLogin(loginUser.getUsername(), loginUser.getPassword());
 
         // 查询用户失败
-        if (userByLogin == null){
+        if (userByLogin == null) {
             response.sendError(HttpStatus.FORBIDDEN.value(), "用户名或密码错误");
             return null;
         }
 
         // 将用户名放入session
-        request.getSession().setAttribute("username",loginUser.getUsername());;
+        request.getSession().setAttribute("username", loginUser.getUsername());
+        ;
         System.out.println(userByLogin);
 
         // 保护一下？好像也没啥大用，
@@ -56,12 +57,23 @@ public class LoginRegisterController {
     private RegisterServiceImpl registerService;
 
     @PostMapping("/register")
-    public Boolean registerNormalUser(@RequestBody User registerUser){
+    public Boolean registerNormalUser(@RequestBody User registerUser, HttpServletResponse response) {
         logger.info("开始注册");
         System.out.println(registerUser);
+        if (registerService.searchForUsername(registerUser.getUsername()) != null) {
+            response.setStatus(888);
+            return false;
+        }
         int i = registerService.registerNormalUser(registerUser);
-        if (i > 0) logger.info("注册成功"); else logger.info("注册失败");
+        if (i > 0) logger.info("注册成功");
+        else logger.info("注册失败");
         return i > 0;
+    }
+
+    @GetMapping("/check_dup_name")
+    public boolean checkDupName(@RequestParam(name = "username") String username) {
+        // 查询username是否存在
+        return registerService.searchForUsername(username) != null;
     }
 
 }
