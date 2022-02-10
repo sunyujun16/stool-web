@@ -21,10 +21,13 @@ public class LoginInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
                              Object handler) throws Exception {
         log.info("拦截器处理中，路径：{}", request.getRequestURL());
+        // 如果是OPTIONS请求，放行，注意不要放在getSession之后，否则session会发生变化
+        if ("OPTIONS".equals(request.getMethod())) {
+            log.info("请求为OPTIONS，放行");
+            return true;
+        }
         String username = (String) request.getSession().getAttribute("username");
         if (username == null) {
-            // 如果是OPTIONS请求，放行
-            if ("OPTIONS".equals(request.getMethod())) return true;
             response.setStatus(HttpStatus.UNAUTHORIZED.value());
             log.info("未登录，拦截器返回401");
             return false;

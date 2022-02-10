@@ -5,7 +5,7 @@
 
 <mapper namespace="com.sunyujun.stool.mapper.ItemsMapper">
     <select id="getItemsByUserId" resultType="com.sunyujun.stool.pojo.Item">
-        select * from items where userId=#{userId};
+        select * from items where userId=#{userId} ;
     </select>
 
     <insert id="saveItem" parameterType="com.sunyujun.stool.pojo.Item">
