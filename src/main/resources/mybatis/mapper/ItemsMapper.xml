@@ -5,12 +5,12 @@
 
 <mapper namespace="com.sunyujun.stool.mapper.ItemsMapper">
     <select id="getItemsByUserId" resultType="com.sunyujun.stool.pojo.Item">
-        select * from items where userId=#{userId} ;
+        select * from items where userId=#{userId} ORDER BY create_time DESC;
     </select>
 
     <insert id="saveItem" parameterType="com.sunyujun.stool.pojo.Item">
-        insert into items(id, userName, userId, title, done)
-         value(#{id}, #{username}, #{userId}, #{title}, #{done})
+        insert into items(id, userName, userId, title, done, create_time)
+         value(#{id}, #{username}, #{userId}, #{title}, #{done}, #{createTime})
     </insert>
 
     <update id="updateItemOnId" parameterType="com.sunyujun.stool.pojo.Item">

@@ -47,6 +47,7 @@ public class ItemController {
 
     /**
      * 更新该用户的所有items，前端每10分钟或手动访问一次。
+     *
      * @return boolean
      * @author sunyujun
      * @date 2/8
@@ -54,12 +55,14 @@ public class ItemController {
     @PostMapping("/update_all")
     public boolean updateAll(
             @RequestBody UpdateBean updateBean
-//            @RequestParam(name = "itemList") List<Item> itemList,
-//            @RequestParam(name = "userId") Integer userId
-            ) {
+    ) {
         logger.info("handler正在处理updateAll请求 ......");
-        return itemService.updateAll(updateBean.getItemList(), updateBean.getUserId());
-//        return itemService.updateAll(itemList, userId);
+        boolean b = itemService.updateAll(updateBean.getItemList(), updateBean.getUserId());
+        logger.info("updateAll 处理完毕");
+        for (Item item : updateBean.getItemList()) {
+            System.out.println(item.getCreateTime());
+        }
+        return b;
     }
 
 }
