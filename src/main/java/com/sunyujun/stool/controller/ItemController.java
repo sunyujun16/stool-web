@@ -59,9 +59,9 @@ public class ItemController {
         logger.info("handler正在处理updateAll请求 ......");
         boolean b = itemService.updateAll(updateBean.getItemList(), updateBean.getUserId());
         logger.info("updateAll 处理完毕");
-        for (Item item : updateBean.getItemList()) {
-            System.out.println(item.getCreateTime());
-        }
+//        for (Item item : updateBean.getItemList()) {
+//            System.out.println(item.getCreateTime());
+//        }
         return b;
     }
 

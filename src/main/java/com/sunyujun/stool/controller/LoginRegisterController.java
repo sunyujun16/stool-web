@@ -36,21 +36,29 @@ public class LoginRegisterController {
                       HttpServletResponse response) throws IOException {
         // 根据参数信息获取User对象
         User userByLogin = loginService.getUserByLogin(loginUser.getUsername(), loginUser.getPassword());
-
         // 查询用户失败
         if (userByLogin == null) {
-            response.sendError(HttpStatus.FORBIDDEN.value(), "用户名或密码错误");
+            response.setStatus(401);
             return null;
         }
-
         // 将用户名放入session
         request.getSession().setAttribute("username", loginUser.getUsername());
-        ;
-        System.out.println(userByLogin);
-
+        log.info("用户已登录：{}", userByLogin);
         // 保护一下？好像也没啥大用，
         userByLogin.setPassword("");
         return userByLogin;
+    }
+
+    @GetMapping("/logout")
+    public void logout(@RequestParam String username, HttpServletRequest request, HttpServletResponse response) {
+        HttpSession session = request.getSession();
+        Object name = session.getAttribute("username");
+        System.out.println(name + "---------");
+        if (name != null) {
+            session.invalidate();
+        } else {
+            response.setStatus(500);
+        }
     }
 
     @Autowired
