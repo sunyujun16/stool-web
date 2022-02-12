@@ -53,7 +53,7 @@ public class LoginRegisterController {
     public void logout(@RequestParam String username, HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession();
         Object name = session.getAttribute("username");
-        System.out.println(name + "---------");
+        log.info("用户{} -- 退出登录", name);
         if (name != null) {
             session.invalidate();
         } else {
