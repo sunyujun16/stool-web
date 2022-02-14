@@ -2,6 +2,7 @@ package com.sunyujun.stool.controller;
 
 import com.sunyujun.stool.mapper.RegisterMapper;
 import com.sunyujun.stool.pojo.Item;
+import com.sunyujun.stool.pojo.Message;
 import com.sunyujun.stool.pojo.User;
 import com.sunyujun.stool.service.RegisterService;
 import com.sunyujun.stool.service.impl.RegisterServiceImpl;
@@ -30,7 +31,7 @@ public class ControllerTests {
 
 
     @Test
-    public void testRegister(){
+    public void testRegister() {
         // 个人感觉，凡是对数据库进行修改的测试，测试通过后还是注释掉为妙
 //        User user = new User();
 //        user.setUsername("sun");
@@ -44,13 +45,13 @@ public class ControllerTests {
     }
 
     @Test
-    void testItemList(){
+    void testItemList() {
         List<Item> items = itemController.getItemList(null, null, 1);
         System.out.println(items);
     }
 
     @Test
-    void testUpdateAll(){
+    void testUpdateAll() {
         List<Item> itemList = itemController.getItemList(null, null, 1);
         Item item = itemList.get(0);
         item.setTitle(item.getTitle() + "new ");
@@ -59,7 +60,7 @@ public class ControllerTests {
     }
 
     @Test
-    void testCheckDupName(){
+    void testCheckDupName() {
         boolean sun = registerController.checkDupName("sun");
         assert sun;
         boolean none = registerController.checkDupName("none");
@@ -67,9 +68,26 @@ public class ControllerTests {
     }
 
     @Test
-    void testCheckDupNameService(){
+    void testCheckDupNameService() {
         System.out.println(registerService.searchForUsername("none"));
         // null
+    }
+
+    @Autowired
+    private MessageController messageController;
+
+    @Test
+    void testSaveMessage() {
+        String s = messageController.saveMessage(
+                new Message(null, "fuck", 12340000000L));
+        assert "success".equals(s);
+    }
+
+    @Test
+    void testListMsg(){
+        List<Message> messages = messageController.listMessages();
+        assert messages != null;
+        System.out.println(" ---------- " + messages);
     }
 
 }
