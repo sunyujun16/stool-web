@@ -26,6 +26,9 @@ public class MessageController {
     public String saveMessage(@RequestBody Message message) {
         int i = messageService.saveMessage(message);
 //        logger.info("message的id: {}", message.getId());
+        if (1 == message.getId()){
+            return "1";
+        }
         return i > 0 ? "success" : "fail";
     }
 
