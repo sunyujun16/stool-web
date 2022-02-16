@@ -14,5 +14,5 @@ spring:
 mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
-  # 之前忘记了对mapper-locations设置，默认的设置无法匹配到我们的mybatis/mapper路径
+  # 之前忘记了对mapper-locations设置，默认的设置无法匹配到我们的mybatis/mapper路径，下次不要了
   mapper-locations: classpath*:/*/mapper/**/*.xml

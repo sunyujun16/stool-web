@@ -31,7 +31,7 @@ public class IndexController {
         // 不能跳转到其他端口
 //        response.sendRedirect("localhost:8081");
         /*
-        先记录一下，现在探索出来的如下：
+        研究session，先记录一下，现在探索出来的如下：
         1 session是在这句代码中自动创建的，而且会自动返回给浏览器，浏览器也非常自觉的带着它。
         2 这不是保证登录，而是保证我们在使用session的时候，能够和浏览器有一一对应的关系，
         毕竟我们没有在代码中指定使用哪个session，是系统根据ID自动为我们找到了正确的session。

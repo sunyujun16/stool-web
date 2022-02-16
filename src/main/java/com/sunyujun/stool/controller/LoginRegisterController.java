@@ -22,7 +22,7 @@ import java.io.IOException;
  * @date 1/16 14:48
  */
 @Slf4j
-@CrossOrigin(origins = {"http://localhost:8081"}, allowCredentials = "true")
+@CrossOrigin(origins = {"${spring.consts.front-end-host}"}, allowCredentials = "true")
 @RestController
 public class LoginRegisterController {
     private static final Logger logger = LoggerFactory.getLogger(LoginRegisterController.class);
