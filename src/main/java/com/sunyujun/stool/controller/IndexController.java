@@ -1,6 +1,9 @@
 package com.sunyujun.stool.controller;
 
 import com.sunyujun.stool.pojo.Item;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,15 +22,18 @@ import java.text.SimpleDateFormat;
  * @version 0.0.0
  * @date 1/3 20:11
  */
+@Slf4j
 @Controller
 public class IndexController {
+    private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
 
     @ResponseBody
     @RequestMapping("/")
     public Item indexHandler(Model model,
                              HttpServletRequest request,
                              HttpServletResponse response) throws IOException {
-        System.out.println("fucking runnning");
+        // 如果打印对象，记住使用占位符，避免浪费系统资源噻。
+        logger.info("进入主页...");
         // 不能跳转到其他端口
 //        response.sendRedirect("localhost:8081");
         /*
@@ -45,10 +51,8 @@ public class IndexController {
         利用request携带的cookies中的jsessionID（如果浏览器窗口没变，那就仍然是上个用户相同的JSessionID，也就是共享一个session）来获取
         session，然后拿到sesion，如果发现这个session里面已经存储了用户名，就说明这个请求之前已经做过登录了，也就放行即可。
          */
-        HttpSession session = request.getSession();
-        System.out.println(session.getId());
+//        HttpSession session = request.getSession();
         SimpleDateFormat dateFormat = new SimpleDateFormat("HH : mm : ss");
-        System.out.println(dateFormat.format(session.getCreationTime()));
 
         Item item = new Item();
         item.setId("001");
