@@ -13,6 +13,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 
 /**
+ * 被注释掉的代码皆已测试通过，但如果再次执行，会影响数据库数据的代码，故注释掉。
+ * 更健壮的写法应该是：增加一些进行清理工作的代码，或者...使用事务-然后抛异常-and手动回滚？
  * @author sunyujun
  * @version 0.0.0
  * @date 1/17 9:45
@@ -52,9 +54,9 @@ public class ControllerTests {
 
     @Test
     void testUpdateAll() {
-        List<Item> itemList = itemController.getItemList(null, null, 1);
-        Item item = itemList.get(0);
-        item.setTitle(item.getTitle() + "new ");
+//        List<Item> itemList = itemController.getItemList(null, null, 1);
+//        Item item = itemList.get(0);
+//        item.setTitle(item.getTitle() + "new ");
 
 //        itemController.updateAll(itemList, 1);
     }
@@ -78,9 +80,9 @@ public class ControllerTests {
 
     @Test
     void testSaveMessage() {
-        String s = messageController.saveMessage(
-                new Message(null, "fuck", 12340000000L));
-        assert "success".equals(s);
+//        String s = messageController.saveMessage(
+//                new Message(null, "fuck", 12340000000L));
+//        assert "success".equals(s);
     }
 
     @Test
