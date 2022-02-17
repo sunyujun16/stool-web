@@ -2,6 +2,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/stool_base?useSSL=false
+#    url: jdbc:mysql://localhost:10086/stool_base?useSSL=false
     username: root
     password: sun
   web:
@@ -9,6 +10,9 @@ spring:
       add-mappings: true
   consts:
     front-end-host: "http://localhost:8081"
+  # 指定激活环境
+  profiles:
+    active: prod
 
 
 mybatis-plus:
@@ -16,3 +20,4 @@ mybatis-plus:
     map-underscore-to-camel-case: true
   # 之前忘记了对mapper-locations设置，默认的设置无法匹配到我们的mybatis/mapper路径，下次不要了
   mapper-locations: classpath*:/*/mapper/**/*.xml
+
