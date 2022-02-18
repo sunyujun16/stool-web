@@ -2,8 +2,10 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:10086/stool_base?useSSL=false
   consts:
-    front-end-host: https://sunyujun.com
+    front-end-host: https://sunyujun.com, http://sunyujun.com, http://101.43.115.186
 logging:
   config: classpath:logback.xml
   level:
     com.sunyujun: info
+
+

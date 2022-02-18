@@ -10,8 +10,8 @@ spring:
   consts:
     front-end-host: http://localhost:8081, http://localhost:9527
   # 指定激活环境
-#  profiles:
-#    active: prod
+  profiles:
+    active: prod
 
 
 mybatis-plus:
