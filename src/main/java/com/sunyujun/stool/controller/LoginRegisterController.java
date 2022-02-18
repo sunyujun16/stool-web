@@ -9,6 +9,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +24,7 @@ import java.io.IOException;
  * @date 1/16 14:48
  */
 @Slf4j
-@CrossOrigin(origins = {"${spring.consts.front-end-host}"}, allowCredentials = "true")
+//@CrossOrigin(origins = "${spring.consts.front-end-host}", allowCredentials = "true")
 @RestController
 public class LoginRegisterController {
     private static final Logger logger = LoggerFactory.getLogger(LoginRegisterController.class);

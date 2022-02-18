@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.sunyujun</groupId>
     <artifactId>stool-backend</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0-RELEASE</version>
     <name>stool-backend</name>
     <description>小工具集，部署上线，作为编写zukeSay项目的热身</description>
     <properties>

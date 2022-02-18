@@ -9,13 +9,13 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  */
 @ConfigurationProperties("spring.consts")
 public class ConstsProperties {
-    private String frontEndHost = "http://localhost:8081";
+    private String[] frontEndHost = {"http://localhost:8081"};
 
-    public String getFrontEndHost() {
+    public String[] getFrontEndHost() {
         return frontEndHost;
     }
 
-    public void setFrontEndHost(String frontEndHost) {
+    public void setFrontEndHost(String[] frontEndHost) {
         this.frontEndHost = frontEndHost;
     }
 }

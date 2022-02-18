@@ -8,8 +8,10 @@ import com.sunyujun.stool.service.RegisterService;
 import com.sunyujun.stool.service.impl.RegisterServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -90,6 +92,18 @@ public class ControllerTests {
         List<Message> messages = messageController.listMessages();
         assert messages != null;
         System.out.println(" ---------- " + messages);
+    }
+
+    @Value("${spring.consts.front-end-host}")
+    private String[] front_end;
+
+    @Test
+    void testYmlArrayConst(){
+        System.out.println("-------------------------- " + Arrays.toString(front_end));
+        System.out.println(front_end[0].getClass());
+        Integer[] arr = {1,2};
+        System.out.println("-------------------------- " + Arrays.toString(arr));
+
     }
 
 }

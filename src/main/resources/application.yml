@@ -2,17 +2,16 @@ spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/stool_base?useSSL=false
-#    url: jdbc:mysql://localhost:10086/stool_base?useSSL=false
     username: root
     password: sun
   web:
     resources:
       add-mappings: true
   consts:
-    front-end-host: "http://localhost:8081"
+    front-end-host: http://localhost:8081, http://localhost:9527
   # 指定激活环境
-  profiles:
-    active: prod
+#  profiles:
+#    active: prod
 
 
 mybatis-plus:

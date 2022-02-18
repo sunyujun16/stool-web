@@ -8,7 +8,10 @@ import com.sunyujun.stool.service.impl.TodoListServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,9 +23,9 @@ import java.util.List;
  * @version 0.0.0
  * @date 1/11 19:51
  */
-@CrossOrigin(origins = {"${spring.consts.front-end-host}"}, allowCredentials = "true")
+//@CrossOrigin(origins = "${spring.consts.front-end-host}", allowCredentials = "true")
 @RestController
-public class ItemController {
+public class ItemController{
     private static final Logger logger = LoggerFactory.getLogger(ItemController.class);
 
     @Autowired
@@ -64,8 +67,6 @@ public class ItemController {
 //        }
         return b;
     }
-
-
 
 }
 
