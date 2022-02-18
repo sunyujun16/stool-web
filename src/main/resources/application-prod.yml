@@ -2,10 +2,15 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:10086/stool_base?useSSL=false
   consts:
-    front-end-host: https://sunyujun.com, http://sunyujun.com, http://101.43.115.186
+    front-end-host: https://sunyujun.com, http://sunyujun.com, https://www.sunyujun.com
 logging:
   config: classpath:logback.xml
   level:
     com.sunyujun: info
 
-
+#server:
+#  ssl:
+#    key-store: classpath:sunyujun.com.pfx
+#    key-store-password: w37ge0f5fr
+#    key-store-type: PFX
+#    enabled: true
